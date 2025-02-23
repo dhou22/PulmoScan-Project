@@ -78,6 +78,6 @@ The goal is to leverage **deep learning** models to **analyze chest X-ray images
 📌 **This README serves as a reference for understanding the dataset and structuring the data exploration phase of the project.**  
 💡 Feel free to contribute or suggest improvements!  
 
-📧 **Contact:** Dhouha Meliane | 🌐 **GitHub:** [_Your Repo_](https://github.com/dhou22/PulmoScan-Project)  
+📧 **Contact:** dhouha.meliane@esprit.tn | 🌐 **GitHub:** [_Your Repo_](https://github.com/dhou22/PulmoScan-Project)  
 
 🚀 **Let's build AI-driven lung cancer detection!** 🏥💙  
