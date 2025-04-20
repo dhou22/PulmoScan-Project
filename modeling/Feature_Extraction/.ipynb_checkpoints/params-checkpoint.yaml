@@ -1,0 +1,42 @@
+
+setting:
+  binWidth: 25
+  label: 1
+  interpolator: 'sitkBSpline'
+  resampledPixelSpacing:
+  weightingNorm:
+  force2D: True
+
+imageType:
+  Original: {}
+
+featureClass:
+  shape:
+  firstorder: []
+  glcm:
+    - 'Autocorrelation'
+    - 'JointAverage'
+    - 'ClusterProminence'
+    - 'ClusterShade'
+    - 'ClusterTendency'
+    - 'Contrast'
+    - 'Correlation'
+    - 'DifferenceAverage'
+    - 'DifferenceEntropy'
+    - 'DifferenceVariance'
+    - 'JointEnergy'
+    - 'JointEntropy'
+    - 'Imc1'
+    - 'Imc2'
+    - 'Idm'
+    - 'Idmn'
+    - 'Id'
+    - 'Idn'
+    - 'InverseVariance'
+    - 'MaximumProbability'
+    - 'SumEntropy'
+    - 'SumSquares'
+  glrlm:
+  glszm:
+  gldm:
+    
