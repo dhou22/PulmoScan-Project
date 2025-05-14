@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Report</title>
+</head>
+<body>
+    <h1>Lung Nodule Prediction Report</h1>
+
+    {% if label %}
+    <h2>🧠 Prediction: {{ label }} (Confidence: {{ confidence|round(2) }})</h2>
+    <h3>📸 CT Slice:</h3>
+    <img src="{{ url_for('static', filename=image_path) }}" width="300"><br>
+
+    <h3>📊 Extracted Features:</h3>
+    <ul>
+        {% for k, v in features.items() %}
+            <li><strong>{{ k }}:</strong> {{ v }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>📄 DICOM Metadata:</h3>
+    <ul>
+        {% for elem in metadata %}
+            <li>{{ elem.keyword }}: {{ elem.value }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <form method="POST" enctype="multipart/form-data">
+        <label for="dicom">Upload DICOM file:</label>
+        <input type="file" name="dicom">
+        <button type="submit">Predict</button>
+    </form>
+    {% endif %}
+</body>
+</html>

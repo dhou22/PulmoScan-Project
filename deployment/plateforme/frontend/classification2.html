@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Cancer Type Classification | PulmoScan</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="frontend/assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="frontend/assets/css/noscript.css" /></noscript>
+</head>
+<body class="landing is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+  <!-- Header -->
+  <header id="header" class="alt">
+    <h1><a href="index.html">PulmoScan</a></h1>
+    <nav id="nav">
+      <ul>
+        <li class="special">
+          <a href="#menu" class="menuToggle"><span>Menu</span></a>
+          <div id="menu">
+            <ul>
+              <li><a href="/home"><i class="fas fa-atom"></i> HOME</a></li>
+              <li><a href="/detection"><i class="fas fa-chart-bar"></i> Lung cancer detection</a></li>
+              <li><a href="/classification1"><i class="fas fa-chart-bar"></i> Malignant VS Benign classification</a></li>
+              <li><a href="/classification2"><i class="fas fa-chart-bar"></i> Lung cancer type classification</a></li>
+              <li><a href="/logout"><i class="fas fa-power-off"></i> Logout</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section id="banner">
+    <div class="inner">
+      <h2>Lung Cancer Type Classification</h2>
+      <p>Identifying Subtypes for Better Prognosis<br />
+        Using deep learning Models<br />
+        Developed by <strong>Our team</strong>.</p>
+    </div>
+    <a href="#one" class="more scrolly">Learn More</a>
+  </section>
+
+  <!-- One -->
+  <section id="one" class="wrapper style1 special">
+    <div class="inner">
+      <header class="major">
+        <h2>AI-Based Lung Cancer Subtype Prediction</h2>
+        <p>Upload your CT scan to classify detected lung nodules into one of three main types: <br />
+          <strong>Adenocarcinoma, Squamous Cell Carcinoma, or Large Cell Carcinoma</strong>.<br />
+          The model uses  trained deep learning classifiers to provide subtype-specific results and downloadable reports.</p>
+      </header>
+    </div>
+  </section>
+
+  <!-- Classification Interface -->
+  <section id="detection" class="wrapper style2">
+    <div class="inner">
+      <header class="major">
+        <h3>How It Works</h3>
+        <p>1. Upload your CT scan file (png format).<br />
+           2. Our AI model analyzes and classifies the cancer type.<br />
+           3. Download your comprehensive subtype classification report.</p>
+      </header>
+
+      <form method="post" action="/analyze_type" enctype="multipart/form-data">
+        <div class="row gtr-uniform">
+          <div class="col-12">
+            <input type="file" name="ct_scan" id="ct_scan" accept=".png" required />
+          </div>
+          <div class="col-12">
+            <ul class="actions">
+              <li><input type="submit" value="Analyze Scan" class="primary" /></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+
+      <div id="report-section" style="margin-top: 30px;">
+        <h3>Download Classification Report</h3>
+        <p>After processing, your subtype classification report will be ready for download below.</p>
+        <ul class="actions">
+          <li><a href="/download-type-report" class="button icon solid fa-download">Download PDF Report</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <ul class="icons">
+      <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+      <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+      <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+      <li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+      <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+    </ul>
+    <ul class="copyright">
+      <li>&copy; PulmoScan</li><li>Design: <a>Team X</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="frontend/assets/js/jquery.min.js"></script>
+<script src="frontend/assets/js/jquery.scrollex.min.js"></script>
+<script src="frontend/assets/js/jquery.scrolly.min.js"></script>
+<script src="frontend/assets/js/browser.min.js"></script>
+<script src="frontend/assets/js/breakpoints.min.js"></script>
+<script src="frontend/assets/js/util.js"></script>
+<script src="frontend/assets/js/main.js"></script>
+
+</body>
+</html>

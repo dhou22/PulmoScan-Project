@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulmoScan | Malignant vs Benign Classification</title>
+  <link rel="stylesheet" href="frontend/assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="frontend/assets/css/noscript.css" /></noscript>
+</head>
+<body class="landing is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+  <!-- Header -->
+  <header id="header" class="alt">
+    <h1><a href="/">PulmoScan</a></h1>
+    <nav id="nav">
+      <ul>
+        <li class="special">
+          <a href="#menu" class="menuToggle"><span>Menu</span></a>
+          <div id="menu">
+            <ul>
+               <li><a href="/home"><i class="fas fa-atom"></i> HOME</a></li>
+              <li><a href="/detection"><i class="fas fa-chart-bar"></i> Lung cancer detection</a></li>
+              <li><a href="/classification1"><i class="fas fa-chart-bar"></i> Malignant VS Benign classification</a></li>
+              <li><a href="/classification2"><i class="fas fa-chart-bar"></i> Lung cancer type classification</a></li>
+              <li><a href="/logout"><i class="fas fa-power-off"></i> Logout</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section id="banner">
+    <div class="inner">
+      <p>Harnessing machine learning for accurate classification<br />
+         of pulmonary nodules as <strong>malignant</strong> or <strong>benign</strong>.<br />
+         Developed by <strong>our team</strong>.</p>
+    </div>
+    <a href="#one" class="more scrolly">Learn More</a>
+  </section>
+
+  <!-- Intro Section -->
+  <section id="one" class="wrapper style1 special">
+    <div class="inner">
+      <header class="major">
+        <h2>AI-Powered Lung Nodule Analysis</h2>
+        <p>Upload CT scans to classify detected nodules.<br />
+        Our model uses radiomic features and ML to provide clinical-grade diagnostics with downloadable reports.</p>
+      </header>
+    </div>
+  </section>
+
+  <!-- Upload and Analysis Section -->
+  <section id="detection" class="wrapper style2">
+    <div class="inner">
+      <header class="major">
+        <h3>How It Works</h3>
+        <ol>
+          <li>Upload your CT scan (DICOM format).</li>
+          <li>Our AI processes and classifies detected nodules.</li>
+          <li>Download a detailed classification report.</li>
+        </ol>
+      </header>
+
+      <form id="analyze-form" enctype="multipart/form-data">
+        <div class="row gtr-uniform">
+          <div class="col-12">
+            <label for="dicom-file">Upload a single DICOM file:</label>
+            <input type="file" name="file" id="dicom-file" accept=".dcm"><br><br>
+
+            <label for="dicom-folder">Or upload a folder of DICOM files:</label>
+              <input type="file" name="folder[]" webkitdirectory directory multiple>
+          </div>
+          <div class="col-12">
+            <ul class="actions">
+              <li><input type="submit" value="Analyze Scan" class="primary" /></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+
+      <div id="report-section" style="margin-top: 30px;">
+        <div id="output" style="margin-top: 20px;"></div>
+
+      
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <ul class="icons">
+      <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+      <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+      <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+      <li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+      <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+    </ul>
+    <ul class="copyright">
+      <li>&copy; 2025 PulmoScan</li><li>Design by <a href="#">Team X</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="frontend/assets/js/jquery.min.js"></script>
+<script src="frontend/assets/js/jquery.scrollex.min.js"></script>
+<script src="frontend/assets/js/jquery.scrolly.min.js"></script>
+<script src="frontend/assets/js/browser.min.js"></script>
+<script src="frontend/assets/js/breakpoints.min.js"></script>
+<script src="frontend/assets/js/util.js"></script>
+<script src="frontend/assets/js/main.js"></script>
+
+<script>
+document.getElementById('analyze-form').addEventListener('submit', async function(event) {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+
+  try {
+    const response = await fetch('/analyze', {
+      method: 'POST',
+      body: formData
+    });
+
+    if (!response.ok) {
+      throw new Error('Analysis failed');
+    }
+
+    const result = await response.json();
+    document.getElementById('output').innerHTML = `
+      <h4>Prediction Result</h4>
+      <p><strong>Label:</strong> ${result.label}</p>
+      <p><strong>Confidence:</strong> ${(result.confidence * 100).toFixed(2)}%</p>
+      <a href="${result.report_url}" class="button icon solid fa-download" download>Download PDF Report</a>
+    `;
+  } catch (error) {
+    document.getElementById('output').innerText = "An error occurred during analysis.";
+  }
+});
+</script>
+
+</body>
+</html>

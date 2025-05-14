@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Detection | PulmoScan</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="frontend/assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="frontend/assets/css/noscript.css" /></noscript>
+</head>
+<body class="landing is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+  <!-- Header -->
+  <header id="header" class="alt">
+    <h1><a href="index.html">PulmoScan</a></h1>
+    <nav id="nav">
+      <ul>
+        <li class="special">
+          <a href="#menu" class="menuToggle"><span>Menu</span></a>
+          <div id="menu">
+            <ul>
+              <li><a href="/home"><i class="fas fa-atom"></i> HOME</a></li>
+              <li><a href="/detection"><i class="fas fa-chart-bar"></i> Lung cancer detection</a></li>
+              <li><a href="/classification1"><i class="fas fa-chart-bar"></i> Malignant VS Benign classification</a></li>
+              <li><a href="/classification2"><i class="fas fa-chart-bar"></i> Lung cancer type classification</a></li>
+              <li><a href="/logout"><i class="fas fa-power-off"></i> Logout</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section id="banner">
+    <div class="inner">
+      <h2>NODULE DETECTION</h2>
+      <p>Accurate Lung Nodule Detection Using R-CNN<br />
+        Leveraging deep learning for precise localization of pulmonary nodules<br />
+        Developed by <strong>Our team </strong>.</p>     
+     
+    </div>
+    <a href="#one" class="more scrolly">Learn More</a>
+  </section>
+
+  <!-- One -->
+  <section id="one" class="wrapper style1 special">
+    <div class="inner">
+      <header class="major">
+        <h2>Lung Cancer Detection Interface</h2>
+        <p>Upload your chest CT scan to detect and assess potential pulmonary nodules.<br />
+          Once uploaded, our AI will analyze the image and generate a detailed report in PDF format.</p>
+      </header>
+    </div>
+  </section>
+
+  <!-- Detection Interface -->
+  <section id="detection" class="wrapper style2">
+    <div class="inner">
+      <header class="major">
+        <h3>Usage Guide</h3>
+        <p>1. Ensure the CT scan is in RAW (.raw).<br />
+           2. Upload the file using the form below.<br />
+           3. Click "Analyze Scan" to run the detection model.<br />
+           4. Once complete, download the report.</p>
+      </header>
+
+      <form method="post" action="/analyze" enctype="multipart/form-data">
+        <div class="row gtr-uniform">
+          <div class="col-12">
+            <input type="file" name="ct_scan" id="ct_scan" accept=".raw" required />
+          </div>
+          <div class="col-12">
+            <ul class="actions">
+              <li><input type="submit" value="Analyze Scan" class="primary" /></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+
+      <div id="report-section" style="margin-top: 30px;">
+        <h3>Download Your Report</h3>
+        <p>Once your scan is analyzed, your report will be available here.</p>
+        <ul class="actions">
+          <li><a href="/download-report" class="button icon solid fa-download">Download PDF Report</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <ul class="icons">
+      <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+      <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+      <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+      <li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+      <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+    </ul>
+    <ul class="copyright">
+      <li>&copy; PulmoScan</li><li>Design: <a>Team X</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="frontend/assets/js/jquery.min.js"></script>
+<script src="frontend/assets/js/jquery.scrollex.min.js"></script>
+<script src="frontend/assets/js/jquery.scrolly.min.js"></script>
+<script src="frontend/assets/js/browser.min.js"></script>
+<script src="frontend/assets/js/breakpoints.min.js"></script>
+<script src="frontend/assets/js/util.js"></script>
+<script src="frontend/assets/js/main.js"></script>
+
+</body>
+</html>

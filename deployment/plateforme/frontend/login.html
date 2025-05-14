@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../frontend/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="icon" href="/frontend/img/favicon1.png" type="image/x-icon">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body id="coverlogin">
+    <form style="display: block !important;" id="myForm" method="POST" action="/login" onsubmit="return validateForm()">
+        <div class="login-wrap">
+            <div class="logo">
+                <h2 id="sign-in-htm">SIGN IN</h2>
+            </div>
+            <div class="login-html">
+                <div class="login-form">
+                    <div class="sign-in-htm">
+                        <div class="group">
+                            <label for="user" class="label">Email</label>
+                            <input type="email" id="email" name="email" class="input" placeholder="Email">
+                        </div>
+                        <div class="group" style="position: relative;">
+                            <label for="pass" class="label">Password</label>
+                            <input type="password" id="password" name="password" class="input" placeholder="Password">
+                            <!-- <i class="bi bi-eye" id="eyeIcon" onclick="togglePasswordVisibility()"></i>-->
+                        </div>
+                        
+                       <div class="group text-center">
+                            <input type="submit" class="button" value="Sign in">
+                          <!--  <p id="pg" class="text-center">
+                                Vous n'avez pas de compte ? <a class="text_l" href="/register">S'inscrire</a>
+                            </p>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div id="alerte_out2">
+        <div id="customAlert" class="alert alert-success">
+            <ul class="list-unstyled">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            <button class="close font__size-18 custom-close-button" onclick="hideCustomAlert()">
+                <span aria-hidden="true">
+                    <i class="fa fa-times danger"></i>
+                </span>
+                <span class="sr-only">Close</span>
+            </button>
+        </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.querySelector('input[name="password"]');
+            var eyeIcon = document.getElementById("eyeIcon");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.classList.remove("bi-eye");
+                eyeIcon.classList.add("bi-eye-slash");
+            } else {
+                passwordField.type = "password";
+                eyeIcon.classList.remove("bi-eye-slash");
+                eyeIcon.classList.add("bi-eye");
+            }
+        }
+
+        function showCustomAlert(message) {
+            var customAlert = document.getElementById("alerte_out2");
+            customAlert.style.display = "block";
+            var customAlertMessage = document.getElementById("customAlertMessage");
+            customAlertMessage.innerHTML = message;
+        }
+
+        function hideCustomAlert() {
+            var customAlert = document.getElementById("alerte_out2");
+            customAlert.style.display = "none";
+        }
+
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            if (email === "" || password === "") {
+                showCustomAlert("Veuillez remplir tous les champs");
+                return false;
+            }
+            if (!email.includes('@dataraise.com')) {
+                showCustomAlert("Veuillez vérifier le domaine.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>

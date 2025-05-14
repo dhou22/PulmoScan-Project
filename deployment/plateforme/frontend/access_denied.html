@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../frontend/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="icon" href="/frontend/img/favicon1.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">    
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <title>Acces denied</title>
+
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+</head>
+
+<body>  
+
+
+<div class="page-wrapper toggled">
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-menu">
+        <ul>
+                <li> <a class="sidebar-dropdown" href="/home"><i class="fas fa-atom"></i><span>HOME</span></a></li> 
+                <li> <a class="sidebar-dropdown" href="/prediction"><i class="fas fa-atom"></i><span>Prediction</span></a></li>
+                <li><a class="sidebar-dropdown" href="/users"><i class="fas fa-users"></i><span>Users Management</span></a></li>
+                <li><a class="sidebar-dropdown" href="/logout"><i class="fas fa-power-off"></i><span>Logout</span></a></li>
+                      
+            </ul>
+      </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    jQuery(function ($) {
+  $(".sidebar-dropdown > a").click(function (e) {
+    e.preventDefault();
+    var submenu = $(this).siblings(".sidebar-submenu");
+    if (submenu.is(":visible")) {
+      submenu.slideUp(200);
+      $(this).parent().removeClass("active");
+    } else {
+      submenu.slideDown(200);
+      $(this).parent().addClass("active");
+    }
+  });
+
+  $("#close-sidebar").click(function () {
+    $(".page-wrapper").removeClass("toggled");
+  });
+
+  $("#show-sidebar").click(function () {
+    $(".page-wrapper").addClass("toggled");
+  });
+});
+
+</script>     
+       <h1 class="Acces"style="font-size: 5.5rem; margin-left: 32%; margin-top: 18%;">ACCES DENIED</h1>      
+
+     
+</body>
+
+</html>
