@@ -1,4 +1,10 @@
 # 🫁 PulmoScan: AI-Powered Lung Cancer Detection & Classification
+---
+
+![image](https://github.com/user-attachments/assets/36ba3b0f-900c-44f6-bbe8-9a2318d6e773)
+
+
+---
 
 Welcome to **PulmoScan**, a deep learning-based platform designed to automate the detection and classification of pulmonary nodules from CT scans. Developed as part of a data science engineering project at ESPRIT (2024–2025), PulmoScan combines robust preprocessing pipelines, advanced 3D CNN architectures, and radiomic features to assist healthcare professionals in diagnosing lung cancer early and accurately.
 
