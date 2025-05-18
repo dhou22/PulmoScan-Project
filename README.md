@@ -95,6 +95,13 @@ PulmoScan provides an end-to-end AI framework for:
 ### 🧠 Modeling Strategy
 
 #### 🔍 Nodule Detection (LUNA16)
+
+---
+
+![image](https://github.com/user-attachments/assets/77dbc071-d435-44d6-894e-00db10c4177f)
+
+---
+
 - **Architecture**: 3D Dual Path Network (DPN)
 - **Optimizer**: AdamW with ReduceLROnPlateau scheduler
 - **Loss Function**: Weighted cross-entropy to address class imbalance
